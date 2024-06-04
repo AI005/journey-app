@@ -19,7 +19,7 @@ import '@ionic/vue/css/text-alignment.css';
 import '@ionic/vue/css/text-transformation.css';
 import '@ionic/vue/css/flex-utils.css';
 import '@ionic/vue/css/display.css';
-
+import { initializeLiveUpdates } from './services/ForceUpdateService';
 /**
  * Ionic Dark Mode
  * -----------------------------------------------------
@@ -40,4 +40,5 @@ const app = createApp(App)
 
 router.isReady().then(() => {
   app.mount('#app');
+  initializeLiveUpdates();
 });
