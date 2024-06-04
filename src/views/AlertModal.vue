@@ -9,12 +9,8 @@
       </ion-row>
       <ion-row class="alert-modal-buttons">
         <ion-col class="block-accept-button">
-          <ion-button
-            expand="block"
-            class="default-button accept-button"
-            @click="handleAcceptButtonClick"
-          >
-            {{ props.acceptButton?.text }}
+          <ion-button expand="block" class="default-button accept-button" @click="handleAcceptButtonClick">
+            Updated
           </ion-button>
         </ion-col>
       </ion-row>
@@ -33,20 +29,16 @@ import {
 } from "@ionic/vue";
 
 interface ModalProps {
-  isOpen: boolean;
   header: string;
   message: string;
-  acceptButton?: {
-    text: string;
-    handler?: () => void;
-  };
+  onConfirm?: () => void;
 }
 
 const props = defineProps<ModalProps>();
 
 
-
 const handleAcceptButtonClick = () => {
+  props.onConfirm?.();
   modalController.dismiss();
 };
 </script>
@@ -65,58 +57,57 @@ const handleAcceptButtonClick = () => {
   display: flex;
   justify-content: center;
   align-items: center;
+}
 
-  .alert-modal-body {
-    flex-direction: column;
-    align-items: center;
-    margin: 50px;
+.alert-modal-body {
+  flex-direction: column;
+  align-items: center;
+  margin: 50px;
+}
 
-    .alert-modal-image-container {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      overflow: hidden;
-
-      .alert-modal-image {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-    }
-
-    .alert-modal-header {
-      color: var(--color-primary8);
-    }
-
-    .alert-modal-message {
-      text-align: left;
-      color: var(--color-neutral4);
-      font-size: 12px;
-    }
-  }
-
-  .alert-modal-buttons {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+.alert-modal-image-container {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+  .alert-modal-image {
     width: 100%;
-
-    .block-cancel-button {
-      flex-basis: 45%;
-    }
-
-    .block-accept-button {
-      flex-basis: 55%;
-    }
-
-    .cancel-button {
-      --color: var(--color-primary8);
-      font-size: 14px;
-    }
-
-    .accept-button {
-      font-size: 14px;
-    }
+    height: 100%;
+    object-fit: cover;
   }
+
+.alert-modal-header {
+  color: var(--color-primary8);
+}
+
+.alert-modal-message {
+  text-align: left;
+  color: var(--color-neutral4);
+  font-size: 12px;
+}
+
+.alert-modal-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.block-cancel-button {
+  flex-basis: 45%;
+}
+
+.block-accept-button {
+  flex-basis: 55%;
+}
+
+.cancel-button {
+  --color: var(--color-primary8);
+  font-size: 14px;
+}
+
+.accept-button {
+  font-size: 14px;
 }
 </style>
