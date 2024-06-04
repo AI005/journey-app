@@ -31,16 +31,16 @@ import {
 interface ModalProps {
   header: string;
   message: string;
-  onConfirm?: () => void;
+  onConfirm: () => void;
 }
 
 const props = defineProps<ModalProps>();
 
-
 const handleAcceptButtonClick = () => {
-  props.onConfirm?.();
+  props.onConfirm();
   modalController.dismiss();
 };
+
 </script>
 
 <style scoped>
