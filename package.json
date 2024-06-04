@@ -24,6 +24,7 @@
     "@ionic/vue-router": "^8.0.0",
     "ionicons": "^7.0.0",
     "vue": "^3.3.0",
+    "vue-remix-icons": "^3.11.0",
     "vue-router": "^4.2.0"
   },
   "devDependencies": {
